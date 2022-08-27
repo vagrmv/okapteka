@@ -1,0 +1,27 @@
+// main: style.less
+
+// place for mixins 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -@gutter-y (@gutter-x * -.5) 0 (@gutter-x * -.5);
+}
+
+.row>* {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 (@gutter-x * .5);
+    margin-top: @gutter-y;
+}
+
+.calculate-cols(@cols-quantity, @i: 1) when (@i <=@cols-quantity) {
+    .col-@{i}-@{cols-quantity} {
+        flex: 1 0 auto;
+        width: calc(@i * 100%/ @cols-quantity);
+    }
+
+    .calculate-cols(@cols-quantity, @i + 1);
+}
+
+.calculate-cols(12);
