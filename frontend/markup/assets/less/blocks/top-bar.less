@@ -1,0 +1,110 @@
+// main: ../style.less
+
+.top-bar{
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &>*{
+        margin: 0 @gutter-x * .75;
+    }
+    &__logo{
+        .textBold();
+        font-weight: 900;
+        color: @c-turquoise;
+        font-size: 3rem;
+        text-decoration: none;
+
+        display: inline-block;
+        position: relative;
+        transition: color .1s linear;
+        span{
+            color: @c-light;
+        }
+        &::after{
+            content: "";
+            display: block;
+            height: 2em;
+            width: 2em;
+            background-color: @c-red;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            border-radius: 1em;
+            transform: translate(-.2em, -.25em);
+            transition: width .2s linear;
+        }
+        &:hover{
+            color: @c-light;
+            &::after{
+                width: calc(~"100% + .5em");
+            }
+        }
+    }
+    &__form{
+        width: 100%;
+        position: relative;
+        &:hover{
+            input{
+                border-color: @c-gray;
+            }
+            label{
+                color: @c-gray;
+            }
+        }
+        input{
+            width: 100%;
+            .textRegular;
+            padding: .75em 1em .75em 3em;
+            border-radius: 1.75em;
+            border: 1px solid @c-turquoise;
+            transition: border-color .1s linear;
+        }
+        label{
+            .textBasePreset;
+            position: absolute;
+            cursor: pointer;
+            top: 50%;
+            left: 1.5em;
+            transform: translateY(-50%);
+            color: @c-turquoise;
+            transition: color .1s linear;
+        }
+    }
+    &__phone{
+        .textBasePreset;
+        display: flex;
+        text-decoration: none;
+        i{
+            margin-right: .5em;
+            vertical-align: middle;
+            font-size: 1.5em;
+            color: @c-turquoise;
+            transition: color .1s linear;
+        }
+        &:hover{
+            i{
+                color: @c-gray;
+            }
+        }
+    }
+    &__controls{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a{
+            .textBasePreset;
+            font-size: 2.5rem;
+            color: @c-turquoise;
+            margin-left: 1em;
+            transition: color .1s linear;
+            &:first-child{
+                margin-left: 0;
+            }
+            &:hover{
+                color: @c-gray;
+            }
+        }
+    }
+}

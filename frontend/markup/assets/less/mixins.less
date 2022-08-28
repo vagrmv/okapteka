@@ -1,6 +1,9 @@
 // main: style.less
 
 // place for mixins 
+// mixins as property named in camelCase
+
+// grid mixins
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -25,3 +28,26 @@
 }
 
 .calculate-cols(12);
+
+// text mixins
+.textBasePreset() {
+    font-family: 'Mulish', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: @c-black;
+}
+
+.textRegular() {
+    .textBasePreset();
+    font-weight: 400;
+}
+
+.textMedium() {
+    .textBasePreset();
+    font-weight: 500;
+}
+
+.textBold() {
+    .textBasePreset();
+    font-weight: 700;
+}
