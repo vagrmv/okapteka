@@ -1,1 +1,23 @@
 // main: ../style.less
+
+.bottom-bar{
+    background-color: @c-turquoise;
+    &__inner{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__link{
+        display: block;
+        padding: .75em 1em;
+        text-align: center;
+        .textBasePreset;
+        color: @c-light;
+        text-decoration: none;
+        transition: background-color .1s linear;
+        &:hover, &:focus{
+            outline: none;
+            background-color: @c-gray;
+        }
+    }
+}

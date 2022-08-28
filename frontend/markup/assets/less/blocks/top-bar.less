@@ -1,12 +1,15 @@
 // main: ../style.less
 
 .top-bar{
-    padding: 1em 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    &>*{
-        margin: 0 @gutter-x * .75;
+    &__inner{
+        padding: 2em 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0  @gutter-x * -.75;
+        &>*{
+            margin: 0 @gutter-x * .75;
+        }
     }
     &__logo{
         .textBold();
@@ -35,7 +38,8 @@
             transform: translate(-.2em, -.25em);
             transition: width .2s linear;
         }
-        &:hover{
+        &:hover, &:focus{
+            outline: none;
             color: @c-light;
             &::after{
                 width: calc(~"100% + .5em");
@@ -54,17 +58,25 @@
             }
         }
         input{
+            @padding-y: calc(~".5em - 1px");
             width: 100%;
             .textRegular;
-            padding: .75em 1em .75em 3em;
-            border-radius: 1.75em;
+            padding: @padding-y 2em @padding-y 3em;
+            border-radius: 2em;
             border: 1px solid @c-turquoise;
             transition: border-color .1s linear;
+            &:focus{
+                outline: none;
+                border-color: @c-gray;
+                & + label{
+                    color: @c-gray;
+                }
+            }
         }
         label{
             .textBasePreset;
             position: absolute;
-            cursor: pointer;
+            cursor: text;
             top: 50%;
             left: 1.5em;
             transform: translateY(-50%);
@@ -75,15 +87,16 @@
     &__phone{
         .textBasePreset;
         display: flex;
+        align-items: center;
         text-decoration: none;
         i{
+            .iconsRegular;
             margin-right: .5em;
-            vertical-align: middle;
-            font-size: 1.5em;
             color: @c-turquoise;
             transition: color .1s linear;
         }
-        &:hover{
+        &:hover, &:focus{
+            outline: none;
             i{
                 color: @c-gray;
             }
@@ -95,14 +108,15 @@
         align-items: center;
         a{
             .textBasePreset;
-            font-size: 2.5rem;
+            .iconsRegular;
             color: @c-turquoise;
             margin-left: 1em;
             transition: color .1s linear;
             &:first-child{
                 margin-left: 0;
             }
-            &:hover{
+            &:hover, &:focus{
+                outline: none;
                 color: @c-gray;
             }
         }

@@ -1,24 +1,28 @@
 // main: ../style.less
 .nav {
     &__toggler {
+        @span-width: 1em;
+        @span-height: 2px;
+        @span-offset: 6px;
         position: relative;
-        padding: .5em 2em .5em calc(~"2em + 28px");
+        padding-left: calc(~"2em + @{span-width} + .5em");
+
         span {
             position: absolute;
-            left: calc(~"1em + 15px");
+            left: calc(~"1em + @{span-width}");
             top: 50%;
             z-index: 1;
             display: block;
-            width: 18px;
-            height: 2px;
+            width: @span-width;
+            height: @span-height;
             background-color: @c-light;
 
             &::before,
             &::after {
                 content: " ";
                 display: block;
-                width: 18px;
-                height: 2px;
+                width: @span-width;
+                height: @span-height;
                 background-color: @c-light;
                 z-index: 1;
             }
@@ -26,13 +30,13 @@
             &::before {
                 position: absolute;
                 left: 0;
-                top: -6px;
+                top: -@span-offset;
             }
 
             &::after {
                 position: absolute;
                 left: 0;
-                bottom: -6px;
+                bottom: -@span-offset;
             }
         }
     }

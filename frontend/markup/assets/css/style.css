@@ -126,8 +126,7 @@ a {
   cursor: pointer;
   background: none;
   border: none;
-  font-size: 2rem;
-  padding: 2em;
+  padding: 0.5em 2em;
   background-color: #81ada7;
   color: #f0fdfa;
   border-radius: 2em;
@@ -135,11 +134,13 @@ a {
   -o-transition: background-color 0.1s linear;
   transition: background-color 0.1s linear;
 }
-.btn:hover {
+.btn:hover,
+.btn:focus {
+  outline: none;
   background-color: #787272;
 }
-.top-bar {
-  padding: 1em 0;
+.top-bar__inner {
+  padding: 2em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -149,8 +150,9 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0 -22.5px;
 }
-.top-bar > * {
+.top-bar__inner > * {
   margin: 0 22.5px;
 }
 .top-bar__logo {
@@ -190,10 +192,13 @@ a {
   -o-transition: width 0.2s linear;
   transition: width 0.2s linear;
 }
-.top-bar__logo:hover {
+.top-bar__logo:hover,
+.top-bar__logo:focus {
+  outline: none;
   color: #f0fdfa;
 }
-.top-bar__logo:hover::after {
+.top-bar__logo:hover::after,
+.top-bar__logo:focus::after {
   width: calc(100% + .5em);
 }
 .top-bar__form {
@@ -213,12 +218,19 @@ a {
   line-height: 1.5;
   color: #393535;
   font-weight: 400;
-  padding: 0.75em 1em 0.75em 3em;
-  border-radius: 1.75em;
+  padding: calc(.5em - 1px) 2em calc(.5em - 1px) 3em;
+  border-radius: 2em;
   border: 1px solid #81ada7;
   -webkit-transition: border-color 0.1s linear;
   -o-transition: border-color 0.1s linear;
   transition: border-color 0.1s linear;
+}
+.top-bar__form input:focus {
+  outline: none;
+  border-color: #787272;
+}
+.top-bar__form input:focus + label {
+  color: #787272;
 }
 .top-bar__form label {
   font-family: 'Mulish', sans-serif;
@@ -226,7 +238,7 @@ a {
   line-height: 1.5;
   color: #393535;
   position: absolute;
-  cursor: pointer;
+  cursor: text;
   top: 50%;
   left: 1.5em;
   -webkit-transform: translateY(-50%);
@@ -245,18 +257,25 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-decoration: none;
 }
 .top-bar__phone i {
+  font-size: 2.5rem;
   margin-right: 0.5em;
-  vertical-align: middle;
-  font-size: 1.5em;
   color: #81ada7;
   -webkit-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.top-bar__phone:hover i {
+.top-bar__phone:hover,
+.top-bar__phone:focus {
+  outline: none;
+}
+.top-bar__phone:hover i,
+.top-bar__phone:focus i {
   color: #787272;
 }
 .top-bar__controls {
@@ -285,20 +304,55 @@ a {
 .top-bar__controls a:first-child {
   margin-left: 0;
 }
-.top-bar__controls a:hover {
+.top-bar__controls a:hover,
+.top-bar__controls a:focus {
+  outline: none;
   color: #787272;
+}
+.bottom-bar {
+  background-color: #81ada7;
+}
+.bottom-bar__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.bottom-bar__link {
+  display: block;
+  padding: 0.75em 1em;
+  text-align: center;
+  font-family: 'Mulish', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #393535;
+  color: #f0fdfa;
+  text-decoration: none;
+  -webkit-transition: background-color 0.1s linear;
+  -o-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
+}
+.bottom-bar__link:hover,
+.bottom-bar__link:focus {
+  outline: none;
+  background-color: #787272;
 }
 .nav__toggler {
   position: relative;
-  padding: 0.5em 2em 0.5em calc(2em + 28px);
+  padding-left: calc(2em + 1em + .5em);
 }
 .nav__toggler span {
   position: absolute;
-  left: calc(1em + 15px);
+  left: calc(1em + 1em);
   top: 50%;
   z-index: 1;
   display: block;
-  width: 18px;
+  width: 1em;
   height: 2px;
   background-color: #f0fdfa;
 }
@@ -306,7 +360,7 @@ a {
 .nav__toggler span::after {
   content: " ";
   display: block;
-  width: 18px;
+  width: 1em;
   height: 2px;
   background-color: #f0fdfa;
   z-index: 1;
