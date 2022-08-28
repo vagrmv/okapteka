@@ -264,7 +264,6 @@ a {
 }
 .top-bar__phone i {
   font-size: 2.5rem;
-  margin-right: 0.5em;
   color: #81ada7;
   -webkit-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
@@ -290,6 +289,7 @@ a {
           align-items: center;
 }
 .top-bar__controls a {
+  position: relative;
   font-family: 'Mulish', sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
@@ -308,6 +308,20 @@ a {
 .top-bar__controls a:focus {
   outline: none;
   color: #787272;
+}
+.top-bar__controls a::after {
+  content: "3";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: -0.75em;
+  right: -1em;
+  padding: 0.1em 0.5em;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 1.7em;
+  color: #f0fdfa;
+  background-color: #81ada7;
 }
 .bottom-bar {
   background-color: #81ada7;
