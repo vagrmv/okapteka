@@ -139,6 +139,9 @@ a {
   outline: none;
   background-color: #787272;
 }
+.top-bar {
+  position: relative;
+}
 .top-bar__inner {
   padding: 2em 0;
   display: -webkit-box;
@@ -224,6 +227,46 @@ a {
   -webkit-transition: border-color 0.1s linear;
   -o-transition: border-color 0.1s linear;
   transition: border-color 0.1s linear;
+}
+.top-bar__form input::-webkit-input-placeholder {
+  font-family: 'Mulish', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #393535;
+  font-weight: 400;
+  color: #d5d7d9;
+}
+.top-bar__form input::-moz-placeholder {
+  font-family: 'Mulish', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #393535;
+  font-weight: 400;
+  color: #d5d7d9;
+}
+.top-bar__form input:-ms-input-placeholder {
+  font-family: 'Mulish', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #393535;
+  font-weight: 400;
+  color: #d5d7d9;
+}
+.top-bar__form input::-ms-input-placeholder {
+  font-family: 'Mulish', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #393535;
+  font-weight: 400;
+  color: #d5d7d9;
+}
+.top-bar__form input::placeholder {
+  font-family: 'Mulish', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #393535;
+  font-weight: 400;
+  color: #d5d7d9;
 }
 .top-bar__form input:focus {
   outline: none;
@@ -316,12 +359,12 @@ a {
   z-index: 1;
   top: -0.75em;
   right: -1em;
-  padding: 0.1em 0.5em;
+  padding: 0 0.4em;
   font-size: 1.2rem;
   text-align: center;
   border-radius: 1.7em;
-  color: #f0fdfa;
-  background-color: #81ada7;
+  color: #81ada7;
+  background-color: #d5d7d9;
 }
 .bottom-bar {
   background-color: #81ada7;
@@ -359,6 +402,7 @@ a {
 .nav__toggler {
   position: relative;
   padding-left: calc(2em + 1em + .5em);
+  display: block;
 }
 .nav__toggler span {
   position: absolute;
@@ -388,4 +432,20 @@ a {
   position: absolute;
   left: 0;
   bottom: -6px;
+}
+.nav__collapse {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 10;
+  -webkit-transform: translate(-50%, 100%);
+      -ms-transform: translate(-50%, 100%);
+          transform: translate(-50%, 100%);
+  background: #f0fdfa;
+  width: 100%;
+  height: 0;
+  overflow-y: hidden;
+  -webkit-transition: height 0.2s linear;
+  -o-transition: height 0.2s linear;
+  transition: height 0.2s linear;
 }
