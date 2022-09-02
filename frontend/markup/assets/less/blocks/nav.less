@@ -41,24 +41,84 @@
             }
         }
     }
-    &__collapse{
+
+    &__collapse {
         position: absolute;
-        bottom: 0;
+        bottom: 1px;
         left: 50%;
         z-index: 10;
 
+        border-top: 1px solid @c-gray-light;
+
         transform: translate(-50%, 100%);
 
-        background: @c-light;
+        background: @c-white;
         width: 100%;
         height: 0;
-        overflow-y: hidden;
+        overflow-y: scroll;
         transition: height .2s linear;
-        // flex-basis: 0;
-        &.active{
-            // height: auto;
-            // flex-basis: auto;
-            // height: 400px;
-        }        
+
+        box-shadow: 0 10px 8px -8px @c-gray;
+        &.active {
+            height: 80vh;
+        }
     }
+    &__categories{
+        
+        border-right: 1px solid @c-gray-light;
+        width: 30%;
+        margin: 0;
+        margin-top: 1.5em;
+        padding: 0;
+        list-style: none;
+        &-item{
+            & > a{
+                .textBasePreset;
+                .hoverTextColor(@c-turquoise);
+                transition: color .1s linear;
+                text-decoration: none;
+                display: block;
+                padding: .5em 2em .5em 0;
+                position: relative;
+                & > i{
+                    position: absolute;
+                    right: 2em;
+                    top: 50%;
+                    transform: translate(100%, -50%);
+                }
+                &.active{
+                    color: @c-turquoise;
+                    + ul{
+                        display: flex;
+                    }
+                }
+            }
+            & > ul{
+                display: none;
+                position: absolute;
+                left: calc(~"30% + @{gutter-x} / 2");
+                top: 0;
+
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+                width: calc(~"70% - @{gutter-x}");
+
+                flex-wrap: wrap;
+
+                & > li{
+                    width: 50%;
+                    padding: 1em;
+                    & > a{
+                        .textRegular;
+                        .hoverTextColor(@c-turquoise);
+                        transition: color .1s linear;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
 }
